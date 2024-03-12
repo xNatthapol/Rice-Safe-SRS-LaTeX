@@ -1,0 +1,46 @@
+\documentclass{report}
+
+\usepackage{skesrsstyles}  % use styles from SKE SRS
+
+% Add third-party packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+% add macro to substitute for empty vars
+\def \usevar#1{\ifx\empty#1 \ \else #1 \fi}
+
+
+%% -----------------------------------
+% Edit the variables for the paper here!
+\def \srsTitle{Project Title}
+\def \srsAuthorOne{Name Surname}
+\def \srsAuthorTwo{Name Surname}
+\def \srsAuthorThree{Name Surname}
+\def \srsAcademicYear{YYYY}
+
+\def \srsAdvisorName{Project Advisor's Name}
+\def \srsCoAdvisorName{Project Co-Advisor's Name}
+\def \srsHoDName{Head of Department's Name}
+%% -----------------------------------
+
+\begin{document}
+
+    \include{partials/cover}
+    \include{partials/innercover}
+
+    \pagenumbering{roman}
+    \setlength{\parindent}{40pt}
+
+    \include{body/abstract}
+    \include{body/acknowledgement}
+
+    \tableofcontents
+
+\end{document}
