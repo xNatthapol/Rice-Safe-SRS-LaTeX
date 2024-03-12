@@ -71,11 +71,29 @@
     \@setfontsize\Huge{35.83}{41}
 }
 
-% reformat the chapters & sections
+%% reformat the chapters & sections
+% chapter-level
 \renewcommand{\chapter}{\thispagestyle{fancy}%
     \global\@topnum\z@
     \secdef\@chapter\@schapter
 }
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                         \refstepcounter{chapter}%
+                         \typeout{\@chapapp\space\thechapter.}%
+                         \addcontentsline{toc}{chapter}%
+                                   {\protect Chapter \numberline{\thechapter}#1}%
+                    \else
+                      \addcontentsline{toc}{chapter}{#1}%
+                    \fi
+                    \chaptermark{#1}%
+                    %\addtocontents{lof}{\protect\addvspace{10\p@}}% Remove blank spaces
+                    %\addtocontents{lot}{\protect\addvspace{10\p@}}%
+                    \if@twocolumn
+                      \@topnewpage[\@makechapterhead{#2}]%
+                    \else
+                      \@makechapterhead{#2}%
+                      \@afterheading
+                    \fi}
 % adjust spaces on top and bottom, change font size
 \def\@makechapterhead#1{%
     \begin{center}%
@@ -104,5 +122,23 @@
         }
     \end{center}
 }
+
+% section-level
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\moderate\bfseries}}
+
+% subsection-level
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries\leftskip 40pt}}
+
+%% modify TOC
+\renewcommand\contentsname{Table of Contents}
+\makeatletter
+\renewcommand\@dotsep{200}
+\makeatother
 
 \endinput
