@@ -6,12 +6,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{url}
 \usepackage{microtype}
 \usepackage{cleveref}
 \usepackage{graphicx}
 \usepackage{tabularx}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+
+\graphicspath{{./assets}}
 
 % add macro to substitute for empty vars
 \def \usevar#1{\ifx\empty#1 \ \else #1 \fi}
@@ -32,6 +36,8 @@
 
 \begin{document}
 
+    \addtocontents{toc}{\moderate\noindent\textbf{Content}\hfill\textbf{Page}\par\addvspace{.2in}\normalsize}
+
     \include{partials/cover}
     \include{partials/innercover}
 
@@ -42,5 +48,20 @@
     \include{body/acknowledgement}
 
     \tableofcontents
+
+    \newpage
+    \listoftables
+    \label{chap:lot}
+    \addcontentsline{toc}{chapter}{\nameref{chap:lot}}
+
+    \newpage
+    \listoffigures
+    \label{chap:lof}
+    \addcontentsline{toc}{chapter}{\nameref{chap:lof}}
+
+    \clearpage
+    \pagenumbering{arabic}
+    \include{body/introduction}
+    \include{body/relatedworks}
 
 \end{document}
