@@ -29,9 +29,12 @@
     \textbf{Advisor}\dotfill & \textbf{Date}\dotfill \\
     \multicolumn{1}{r}{(\usevar{\srsAdvisorName})} & \\[.1in]
 
-    \textbf{Co-Advisor} (if there is)\dotfill & \textbf{Date}\dotfill \\
+    \ifx\srsCoAdvisorName\empty
+    \else
+    \textbf{Co-Advisor}\dotfill & \textbf{Date}\dotfill \\
     \multicolumn{1}{r}{(\usevar{\srsCoAdvisorName})} & \\[.1in]
-    
+    \fi
+
     \textbf{Head of Department}\dotfill & \textbf{Date}\dotfill \\
     \multicolumn{1}{r}{(\usevar{\srsHoDName})} & \\
 \end{tabularx}

@@ -5,7 +5,7 @@ Made for Software and Knowledge Engineering students who enrolled in Project Pre
 It is recommended to use **Visual Studio Code** to open the `main.code-workspace` file, and it is recommended to install the [`LaTeX Workshop`](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension.
 * TeX Distribution w/ LaTeX[^1]
   * You can use [MikTeX](https://miktex.org/) as the distribution that will manage installations of LaTeX packages for you, however you will also need to install `perl`.
-  * Note that it should support LaTeXe2 macro package, which most modern distributions should.
+  * Note that it should support LaTeX2e macro package, which most modern distributions should.
 
 ## Instructions
 * To start using the template, clone the repository or fork into your own repository.
